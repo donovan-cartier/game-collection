@@ -19,7 +19,7 @@ export function GameCard({ game }: { game: Game }) {
         {game.background_image && (
             <Image
                 src={game.background_image}
-                width="300"
+                width="400"
                 height="100"
                 alt="Event cover"
                 className="relative z-20 aspect-square w-full object-cover"

@@ -1,29 +1,43 @@
-'use client'
+import { Button } from "@/components/ui/button";
+import { Heading } from "@/components/ui/heading";
+import { SiGithub } from "@icons-pack/react-simple-icons";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button"
-import { Game } from "@/types/game"
-import { fetchGames } from "@/lib/rawg"
-import { useState } from "react"
-import { GameCard } from "@/components/ui/game-card"
-
-export default function Page() {
-  function handleClick() {
-    fetchGames("devil may cry").then((data) => {
-      setGames(data)
-    })
-  }
-
-  const [games, setGames] = useState<Game[]>([])
+export default function HomePage() {
 
   return (
-    <div>
-      <h1>Games</h1>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {games.map((game: Game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+    <div className="container py-12 mx-auto text-center h-screen flex flex-col justify-center">
+      <div className="flex flex-col gap-2">
+        <h1 className="scroll-m-20 text-7xl font-extrabold tracking-tight text-balance">Game Collection</h1>
+        <p className="leading-7 text-2xl">
+          Parcourir, découvrir et organiser votre collection de jeux vidéo.
+        </p>
       </div>
-      <Button onClick={handleClick}>Test</Button>
+
+
+      <div className="flex gap-4 justify-center mt-4">
+        <Button variant="default" size="lg" asChild>
+          <Link href="/games">Parcourir les jeux</Link>
+        </Button>
+
+        <Button variant="outline" size="lg" asChild>
+          <Link href="https://github.com/donovan-cartier/game-collection" target="_blank" className="flex gap-2 items-center">
+            <SiGithub /> Voir le code source
+          </Link>
+        </Button>
+
+      </div>
+
+      <p className="mt-16 text-sm">Ceci est un projet personnel démontrant l&apos;utilisation de Next.js, couplé à l&apos;API RAWG pour récupérer les données des jeux vidéo.</p>
+      <div className="flex justify-center gap-4 mt-4">
+        <Link href="https://donovancartier.fr" target="_blank" className="text-sm text-muted-foreground">
+          Donovan Cartier
+        </Link>
+
+        <Link href="https://rawg.io/apidocs" target="_blank" className="text-sm text-muted-foreground">
+          API RAWG
+        </Link>
+      </div>
     </div>
   )
 }

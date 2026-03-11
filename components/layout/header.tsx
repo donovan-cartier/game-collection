@@ -16,27 +16,31 @@ import { Field } from "@/components/ui/field"
 
 export function Header() {
     return (
-    <NavigationMenu>
-        <NavigationMenuList>
-            <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/">Home</Link>
-                </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/docs">Documentation</Link>
-                </NavigationMenuLink>
-            </NavigationMenuItem>
+        <header className="w-full flex items-center justify-between border-b bg-background/50 p-4">
+            <p className="text-2xl font-bold tracking-tight">GAME COLLECTION</p>
+            <NavigationMenu className="ml-auto">
+                <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                            <Link href="/">Accueil</Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
 
-            <NavigationMenuItem>
-                <Field orientation="horizontal">
-                    <Input type="search" placeholder="Rechercher un jeu..." />
-                    <Button type="submit">Rechercher</Button>
-                </Field>
-            </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                            <Link href="/games">Jeux</Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
 
-        </NavigationMenuList>
-    </NavigationMenu>
+                    <NavigationMenuItem>
+                        <Field orientation="horizontal">
+                            <Input type="search" placeholder="Rechercher un jeu..." />
+                            <Button type="submit">Rechercher</Button>
+                        </Field>
+                    </NavigationMenuItem>
+
+                </NavigationMenuList>
+            </NavigationMenu>
+        </header>
     )
 }
