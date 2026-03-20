@@ -1,4 +1,4 @@
-import { Game } from "@/types/game";
+import { CollectionGame } from "@/types/game";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ import {
 import { CollectionButton } from "@/components/ui/collection-button"
 
 
-export function GameCard({ game }: { game: Game }) {
+export function GameCard({ game }: { game: CollectionGame }) {
   return (
       <Card className="relative mx-auto w-full max-w-sm pt-0">
         <Link href={`/games/${game.slug}`}>

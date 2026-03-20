@@ -33,6 +33,12 @@ export function Header() {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
+                        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                            <Link href="/collection">Ma collection</Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+
+                    <NavigationMenuItem>
                         <form action="/games" method="GET">
                             <Field orientation="horizontal">
                                 <Input name="query" type="search" placeholder="Rechercher un jeu..." />

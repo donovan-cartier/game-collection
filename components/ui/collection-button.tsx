@@ -5,14 +5,13 @@ import { PackagePlus, PackageMinus } from "lucide-react"
 import {
     addToCollection,
     removeFromCollection,
-    toCollectionGame,
     isInCollection,
 } from "@/lib/collection"
-import { Game } from "@/types/game"
+import { CollectionGame } from "@/types/game"
 
 import { useEffect, useState } from "react"
 
-export function CollectionButton({ game }: { game: Game }) {
+export function CollectionButton({ game }: { game: CollectionGame }) {
     const [inCollection, setInCollection] = useState(false)
 
     useEffect(() => {
@@ -25,7 +24,7 @@ export function CollectionButton({ game }: { game: Game }) {
             variant="default"
             size="sm"
             onClick={() => {
-                addToCollection(toCollectionGame(game))
+                addToCollection(game)
                 setInCollection(true)
             }}
         >
@@ -37,7 +36,7 @@ export function CollectionButton({ game }: { game: Game }) {
             variant="secondary"
             size="sm"
             onClick={() => {
-                removeFromCollection(toCollectionGame(game))
+                removeFromCollection(game)
                 setInCollection(false)
             }}
         >
