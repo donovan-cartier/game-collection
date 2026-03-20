@@ -33,10 +33,12 @@ export function Header() {
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                        <Field orientation="horizontal">
-                            <Input type="search" placeholder="Rechercher un jeu..." />
-                            <Button type="submit">Rechercher</Button>
-                        </Field>
+                        <form action="/games" method="GET">
+                            <Field orientation="horizontal">
+                                <Input name="query" type="search" placeholder="Rechercher un jeu..." />
+                                <Button type="submit">Rechercher</Button>
+                            </Field>
+                        </form>
                     </NavigationMenuItem>
 
                 </NavigationMenuList>
